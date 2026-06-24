@@ -10479,6 +10479,7 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
+
 cc_prebuilt_library_shared {
     name: "vendor.qti.diaghal-V1-ndk_vendor",
     stem: "vendor.qti.diaghal-V1-ndk",
