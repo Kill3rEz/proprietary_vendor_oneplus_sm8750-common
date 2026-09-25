@@ -6,11 +6,7 @@ soong_namespace {
     imports: [
         "device/oneplus/sm8750-common",
         "hardware/qcom-caf/sm8750",
-        "hardware/qcom-caf/wlan",
         "hardware/oplus",
-        "vendor/qcom/opensource/commonsys/display",
-        "vendor/qcom/opensource/commonsys-intf/display",
-        "vendor/qcom/opensource/dataservices",
     ],
 }
 
@@ -9342,58 +9338,9 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.fm-V1-ndk",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.fm-V1-ndk.so",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// vendor.qti.hardware.fm-V1-ndk prebuilt rimosso: duplica l'interfaccia AIDL generata da vendor/aospa/interfaces/qcom/fm (conflitto partizione). PenguinOS/dodge.
 
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.fm@1.0",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.fm@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// vendor.qti.hardware.fm@1.0 prebuilt rimosso: duplica l'interfaccia HIDL generata da vendor/aospa/interfaces/qcom/fm. PenguinOS/dodge.
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.hexlp-V1-ndk",
@@ -10760,6 +10707,13 @@ cc_prebuilt_library_shared {
                 "libwfddisplayconfig",
                 "libmedia_helper",
                 "libaudioclient",
+                // PenguinOS (A17): AudioSystem::{get,set}Parameters(audio_io_handle_t,
+                // String8) and {add,remove}ErrorCallback moved from libaudioclient
+                // to libaudiobase. libgui_shim provides the pre-A17
+                // SurfaceComposerClient::createVirtualDisplay() signature (before the
+                // uid_t ownerUid parameter was added).
+                "libaudiobase",
+                "libgui_shim",
                 "libwfdavenhancements",
                 "libhidlbase",
                 "libgralloctypes",
@@ -10878,7 +10832,7 @@ cc_prebuilt_library_shared {
                 "libaudioclient",
                 "libaudiofoundation",
                 "audioclient-types-aidl-cpp",
-                "android.media.audio.common.types-V4-cpp",
+                "android.media.audio.common.types-V5-cpp",
                 "libwfdmmsrc_system",
                 "libwfdavenhancements",
                 "libhidlbase",
@@ -10893,6 +10847,13 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    // libwfdservice was built against android.media.audio.common.types AIDL V4; its
+    // DT_NEEDED references the V4-cpp lib. A17 uses V5, and soong forbids two
+    // versions of one aidl_interface in the same graph (libaudioclient pulls V5),
+    // so V4-cpp cannot be added to shared_libs. Its symbols resolve against V5; only
+    // the soname differs. Bypass the ELF check and install the V4-cpp lib via
+    // PRODUCT_PACKAGES so the DT_NEEDED is satisfied at runtime.
+    check_elf_files: false,
     prefer: true,
     system_ext_specific: true,
 }
@@ -22262,6 +22223,16 @@ android_app_import {
         enabled: false,
     },
     soc_specific: true,
+}
+
+// AOSPA's device/qcom/common only ships the .qti symlink (in an inactive
+// namespace); the osm CneApp blob wants the .qti_vendor variant, so define it
+// here in the active vendor namespace pointing at libvndfwk_detect_jni.qti_vendor.
+install_symlink {
+    name: "CneApp.libvndfwk_detect_jni.qti_vendor_symlink",
+    vendor: true,
+    installed_location: "app/CneApp/lib/arm64/libvndfwk_detect_jni.qti_vendor.so",
+    symlink_target: "/vendor/lib64/libvndfwk_detect_jni.qti_vendor.so",
 }
 
 android_app_import {

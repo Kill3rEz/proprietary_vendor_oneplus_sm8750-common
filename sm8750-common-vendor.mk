@@ -41,12 +41,10 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/sm8750-common/proprietary/system/etc/sysconfig/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/horae/horae.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/horae/horae.conf \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/init/horae.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/horae.rc \
-    vendor/oneplus/sm8750-common/proprietary/system_ext/etc/init/qspa_system.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/qspa_system.rc \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/init/vendor.qti.qccsyshal_aidl-service.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/vendor.qti.qccsyshal_aidl-service.rc \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/init/wfdservice.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/wfdservice.rc \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/permissions/com.qti.qcc.vendor_qcc.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qti.qcc.vendor_qcc.xml \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml \
-    vendor/oneplus/sm8750-common/proprietary/system_ext/etc/qspa/qspa_default.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/qspa/qspa_default.rc \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/seccomp_policy/wfdservice64.policy:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/seccomp_policy/wfdservice64.policy \
     vendor/oneplus/sm8750-common/proprietary/system_ext/etc/wfdconfigsink.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/wfdconfigsink.xml \
     vendor/oneplus/sm8750-common/proprietary/vendor/etc/2024-10-11_platform_RSA_SM8750_license_d07bab28-156e-49b6-9eda-103eb7c6f6de.pfm:$(TARGET_COPY_OUT_VENDOR)/etc/2024-10-11_platform_RSA_SM8750_license_d07bab28-156e-49b6-9eda-103eb7c6f6de.pfm \
@@ -657,6 +655,7 @@ PRODUCT_PACKAGES += \
     libwfdnative \
     libwfdrtsp \
     libwfdservice \
+    android.media.audio.common.types-V4-cpp \
     libwfdsinksm \
     libwfduibcinterface \
     libwfduibcsink \
