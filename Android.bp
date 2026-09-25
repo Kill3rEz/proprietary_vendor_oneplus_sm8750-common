@@ -6,11 +6,7 @@ soong_namespace {
     imports: [
         "device/oneplus/sm8750-common",
         "hardware/qcom-caf/sm8750",
-        "hardware/qcom-caf/wlan",
         "hardware/oplus",
-        "vendor/qcom/opensource/commonsys/display",
-        "vendor/qcom/opensource/commonsys-intf/display",
-        "vendor/qcom/opensource/dataservices",
     ],
 }
 
@@ -9235,58 +9231,9 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.fm-V1-ndk",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.fm-V1-ndk.so",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// vendor.qti.hardware.fm-V1-ndk: built from source by vendor/aospa/interfaces/qcom/fm.
 
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.fm@1.0",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.fm@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// vendor.qti.hardware.fm@1.0: built from source by vendor/aospa/interfaces/qcom/fm.
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.hexlp-V1-ndk",
@@ -22087,6 +22034,16 @@ android_app_import {
         enabled: false,
     },
     soc_specific: true,
+}
+
+// AOSPA's device/qcom/common only ships the .qti symlink (in an inactive
+// namespace); the osm CneApp blob wants the .qti_vendor variant, so define it
+// here in the active vendor namespace pointing at libvndfwk_detect_jni.qti_vendor.
+install_symlink {
+    name: "CneApp.libvndfwk_detect_jni.qti_vendor_symlink",
+    vendor: true,
+    installed_location: "app/CneApp/lib/arm64/libvndfwk_detect_jni.qti_vendor.so",
+    symlink_target: "/vendor/lib64/libvndfwk_detect_jni.qti_vendor.so",
 }
 
 android_app_import {
