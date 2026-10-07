@@ -23,6 +23,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/audio_algos_ver/OPSR_Version.txt:$(TARGET_COPY_OUT_ODM)/etc/audio_algos_ver/OPSR_Version.txt \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/audio_algos_ver/OPVE_Version.txt:$(TARGET_COPY_OUT_ODM)/etc/audio_algos_ver/OPVE_Version.txt \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/charge.cfg:$(TARGET_COPY_OUT_ODM)/etc/charge.cfg \
+    vendor/oneplus/sm8750-common/proprietary/odm/etc/display/cwb_weightspos.json:$(TARGET_COPY_OUT_ODM)/etc/display/cwb_weightspos.json \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/horae/horae_target.conf:$(TARGET_COPY_OUT_ODM)/etc/horae/horae_target.conf \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/init/hw/init.oplus.display.rc:$(TARGET_COPY_OUT_ODM)/etc/init/hw/init.oplus.display.rc \
     vendor/oneplus/sm8750-common/proprietary/odm/etc/init/hw/init.oplus.wifi.rc:$(TARGET_COPY_OUT_ODM)/etc/init/hw/init.oplus.wifi.rc \
@@ -356,6 +357,7 @@ PRODUCT_PACKAGES += \
     libcpion \
     libcv_common \
     libcwb_client_vendor \
+    libcwb_qcom_aidl \
     libdemura_oem_plugin \
     libdiag \
     libdigital-dimming \
@@ -766,6 +768,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.qccvndhal_aidl-service.xml \
     vendor.qti.qccsyshal_aidl-service.xml \
     manifest_oplus_charger_aidl.xml \
+    manifest_oplus_cwb_aidl.xml \
     manifest_oplus_displaypanelfeature_aidl.xml \
     manifest_touch_aidl.xml \
     KmInstallKeybox \
