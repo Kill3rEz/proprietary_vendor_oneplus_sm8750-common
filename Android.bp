@@ -4443,8 +4443,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-
-
 cc_prebuilt_library_shared {
     name: "libperipheral_client",
     owner: "oneplus",
@@ -4473,7 +4471,6 @@ cc_prebuilt_library_shared {
     prefer: true,
     soc_specific: true,
 }
-
 
 cc_prebuilt_library_shared {
     name: "libqasr",
@@ -6066,13 +6063,6 @@ cc_prebuilt_library_shared {
     prefer: true,
     soc_specific: true,
 }
-
-
-
-
-
-
-
 
 cc_prebuilt_library_shared {
     name: "libqtigefar",
@@ -9263,7 +9253,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.qasr-V2-ndk",
     owner: "oneplus",
@@ -9878,7 +9867,6 @@ cc_prebuilt_library_shared {
     prefer: true,
     soc_specific: true,
 }
-
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.snapdragonServices-V1-ndk",
@@ -12784,7 +12772,6 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
-
 prebuilt_etc_xml {
     name: "vendor.qti.hardware.qconfig-service.xml",
     owner: "oneplus",
@@ -12839,7 +12826,6 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
-
 prebuilt_etc_xml {
     name: "vendor.qti.qccsyshal_aidl-service.xml",
     owner: "oneplus",
@@ -12847,15 +12833,6 @@ prebuilt_etc_xml {
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     system_ext_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "manifest_oplusSensor_aidl.xml",
-    owner: "oneplus",
-    src: "proprietary/odm/etc/vintf/manifest/manifest_oplusSensor_aidl.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
 }
 
 prebuilt_etc_xml {
@@ -12871,15 +12848,6 @@ prebuilt_etc_xml {
     name: "manifest_oplus_displaypanelfeature_aidl.xml",
     owner: "oneplus",
     src: "proprietary/odm/etc/vintf/manifest/manifest_oplus_displaypanelfeature_aidl.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "manifest_oplus_face.xml",
-    owner: "oneplus",
-    src: "proprietary/odm/etc/vintf/manifest/manifest_oplus_face.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     device_specific: true,
@@ -13478,7 +13446,6 @@ cc_prebuilt_binary {
     relative_install_path: "hw",
     soc_specific: true,
 }
-
 
 cc_prebuilt_binary {
     name: "vendor.qti.hardware.qseecom@1.0-service",
@@ -14524,7 +14491,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-
 sh_binary {
     name: "vendor_modprobe",
     owner: "oneplus",
@@ -14787,94 +14753,6 @@ cc_prebuilt_binary {
                 "liblog",
                 "libbase",
                 "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    device_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "vendor-oplus-hardware-oplusSensor-V1-service",
-    owner: "oneplus",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/bin/hw/vendor-oplus-hardware-oplusSensor-V1-service",
-            ],
-            shared_libs: [
-                "vendor.oplus.hardware.oplusSensor-V1-ndk",
-                "libbase",
-                "libcutils",
-                "libdumpstateutil",
-                "liblog",
-                "libbinder_ndk",
-                "libutils",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    device_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "vendor.oplus.hardware.biometrics.face@1.0-service_uff",
-    owner: "oneplus",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service_uff",
-            ],
-            shared_libs: [
-                "libbinder",
-                "liblog",
-                "libcutils",
-                "libhardware",
-                "libutils",
-                "libui",
-                "libbase",
-                "libhidlbase",
-                "libcamera2ndk_vendor",
-                "libmediandk",
-                "libnativewindow",
-                "libtinyxml2",
-                "libprocessgroup",
-                "libstfaceunlockocl_uff",
-                "libbinder_ndk",
-                "libdmabufheap",
-                "android.hardware.biometrics.face-V4-ndk",
-                "android.hardware.biometrics.common-V4-ndk",
-                "android.hardware.keymaster-V4-ndk",
-                "libQSEEComAPI",
-                "libion",
-                "vendor.oplus.hardware.performance-V1-ndk",
-                "vendor.oplus.hardware.osense.client-V1-ndk",
-                "libosenseaidlhalclient",
-                "liboplus-uah-client",
-                "libosensenativeproxy_client",
-                "libolc_vnd",
-                "libsensorndkbridge",
-                "vendor.oplus.hardware.commondcs-V1-ndk",
-                "android.frameworks.stats-V1-ndk",
                 "libc++",
                 "libc",
                 "libm",
