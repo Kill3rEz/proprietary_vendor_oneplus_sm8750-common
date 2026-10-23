@@ -1335,3 +1335,8 @@ PRODUCT_PACKAGES += \
     system_ext_priv-app_ims_lib_arm64_libimsmedia_jni_so
 
 endif
+
+# libwfdservice.so is linked against the V4 audio types; its Android.bp dep was
+# dropped to keep V4 out of a graph that also reaches V5.
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V4-cpp
