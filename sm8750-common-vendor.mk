@@ -388,7 +388,6 @@ PRODUCT_PACKAGES += \
     libllvm-glnext \
     libllvm-qcom \
     libllvm-qgl \
-    liblmthermallistner \
     libloadalgo_stub \
     libmapperutils \
     libmcs \
@@ -476,7 +475,6 @@ PRODUCT_PACKAGES += \
     libqsh \
     libqsh_ble_pb \
     libqsocket \
-    libqspm-mem-utils-vendor \
     libqtigefar \
     libqtiidentitycredential \
     libqtikeymaster4 \
@@ -605,7 +603,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.vpp@1.3 \
     vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk_vendor \
     vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl \
-    vendor.qti.memory.pasrmanager-V1-ndk \
     vendor.qti.qccsyshal_aidl-V1-ndk_vendor \
     vendor.qti.qccvndhal_aidl-V1-ndk_vendor \
     vendor.qti.qccvndhal_aidl-halimpl \
@@ -616,7 +613,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.qesdhal@1.3 \
     vendor.qti.qesdhalaidl-V2-ndk \
     vendor.qti.qesdsys-V4-ndk \
-    vendor.qti.qspmhal-V1-ndk \
     vendor.qti.snapdragonServices-V1-ndk \
     vendor.qti.snapdragonServices.qape-V1-ndk \
     vendor_lib_rfsa_adsp_chre_qsh_shim_so \
