@@ -271,6 +271,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     vendor.qti.diaghal-V1-ndk \
+    android.hardware.bluetooth.audio-impl_prebuilt \
     btaudio_offload_if \
     eglSubDriverAndroid \
     libEGL_adreno \
@@ -332,6 +333,7 @@ PRODUCT_PACKAGES += \
     libaudioplatformconverter.qti \
     libaudioserviceexampleimpl \
     libbacklight-calib \
+    libbluetooth_audio_session_aidl_prebuilt \
     libbluetooth_audio_session_aidl_qti \
     libbluetooth_audio_session_qti \
     libbluetooth_audio_session_qti_2_1 \
