@@ -10630,9 +10630,6 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdmmsrc_system",
     owner: "oneplus",
-    // a17 added a uid_t parameter to SurfaceComposerClient::createVirtualDisplay,
-    // so the old mangled name this blob imports no longer exists anywhere.
-    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -10664,6 +10661,7 @@ cc_prebuilt_library_shared {
                 "android.hardware.graphics.allocator@4.0",
                 "android.hardware.graphics.allocator-V2-ndk",
                 "libbinder_ndk",
+                "libaudiobase",
                 "libc++",
                 "libc",
                 "libm",
@@ -10746,9 +10744,6 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdservice",
     owner: "oneplus",
-    // The V4 audio types dep is installed via PRODUCT_PACKAGES instead of
-    // shared_libs, to keep V4 and V5 out of one graph.
-    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -10771,8 +10766,10 @@ cc_prebuilt_library_shared {
                 "libwfdmminterface",
                 "libmedia_helper",
                 "libaudioclient",
+                "libaudiobase",
                 "libaudiofoundation",
                 "audioclient-types-aidl-cpp",
+                "android.media.audio.common.types-V5-cpp",
                 "libwfdmmsrc_system",
                 "libwfdavenhancements",
                 "libhidlbase",
